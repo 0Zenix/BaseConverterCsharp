@@ -1,0 +1,15 @@
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/bin/Debug/net7.0/BaseConverterCshap
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/bin/Debug/net7.0/BaseConverterCshap.deps.json
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/bin/Debug/net7.0/BaseConverterCshap.runtimeconfig.json
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/bin/Debug/net7.0/BaseConverterCshap.dll
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/bin/Debug/net7.0/BaseConverterCshap.pdb
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.csproj.AssemblyReference.cache
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.GeneratedMSBuildEditorConfig.editorconfig
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.AssemblyInfoInputs.cache
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.AssemblyInfo.cs
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.csproj.CoreCompileInputs.cache
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.dll
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/refint/BaseConverterCshap.dll
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.pdb
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/BaseConverterCshap.genruntimeconfig.cache
+/home/gustavo/Documentos/Projects/csharp/BaseConverterCshap/obj/Debug/net7.0/ref/BaseConverterCshap.dll
