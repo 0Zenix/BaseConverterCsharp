@@ -9,10 +9,14 @@ namespace BaseConverter
 
         static void Main(string[] args)
         {
-            Console.WriteLine(DecToAny("15", 16));
+            Console.Write("Entrar Número: ");
+            string input = Console.ReadLine();
+            Console.Write("\n");
+            Console.Write("Entrar Número: ");
+            int target_base = int.Parse(Console.ReadLine());
         }
 
-        static int AnyToDec(String input)
+        static string AnyToDec(String input)
         {
             String number = ReverseString(input.ToUpper());
 
@@ -24,7 +28,7 @@ namespace BaseConverter
                 acc += Convert.ToInt32(Math.Pow(original_base, i)) * CharToNumber(number[i]);
             }
 
-            return acc;
+            return Convert.ToString(acc);
         }
 
         static string DecToAny(String input, int target_base)
@@ -41,6 +45,20 @@ namespace BaseConverter
             }
 
             return new string((results).ToArray());
+        }
+
+        static string AnyToAny(string input, int target_base)
+        {
+            string inDecimal = AnyToDec(input);
+
+            if ( GetBase(input) == 10 )
+            {
+                return inDecimal;
+            } else 
+            {
+                return DecToAny(inDecimal, target_base);
+            }
+
         }
 
         static int CharToNumber(char input)
