@@ -10,10 +10,10 @@ namespace BaseConverter
         static void Main(string[] args)
         {
             Console.Write("Entrar Número: ");
-            string input = Console.ReadLine();
+            var input = Console.ReadLine();
             Console.Write("\n");
             Console.Write("Entrar Número: ");
-            int target_base = int.Parse(Console.ReadLine());
+            var target_base = Convert.ToInt32(Console.ReadLine());
         }
 
         static string AnyToDec(String input)
