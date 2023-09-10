@@ -9,18 +9,28 @@ namespace BaseConverter
 
         static void Main(string[] args)
         {
-            Console.Write("Entrar Número: ");
+            Console.Write("Informe o número inicail: ");
             var input = Console.ReadLine();
             Console.Write("\n");
-            Console.Write("Entrar Número: ");
+
+            Console.Write("Informe a base inical: ");
+            var original_base = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\n");
+
+            Console.Write("Informe a base inical: ");
             var target_base = Convert.ToInt32(Console.ReadLine());
+
+            CheckInput(input, original_base);
         }
 
-        static string AnyToDec(String input)
+        static void CheckInput(string? input, int original_base)
+        {
+            throw new NotImplementedException();
+        }
+
+        static string AnyToDec(String input, int original_base)
         {
             String number = ReverseString(input.ToUpper());
-
-            int original_base = GetBase(number);
 
             int acc = 0;
             for (int i = 0; i < number.Length; i++)
@@ -47,9 +57,9 @@ namespace BaseConverter
             return new string((results).ToArray());
         }
 
-        static string AnyToAny(string input, int target_base)
+        static string AnyToAny(string input, int original_base, int target_base)
         {
-            string inDecimal = AnyToDec(input);
+            string inDecimal = AnyToDec(input, original_base);
 
             if ( GetBase(input) == 10 )
             {
