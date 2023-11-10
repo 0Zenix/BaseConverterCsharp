@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Runtime.CompilerServices;
+﻿using System.Runtime.CompilerServices;
+using System.Text.RegularExpressions;
 
 namespace BaseConverter
 {
@@ -9,26 +9,68 @@ namespace BaseConverter
 
         static void Main(string[] args)
         {
-            Console.Write("Informe o número inicail: ");
-            var input = Console.ReadLine();
-            Console.Write("\n");
+            Console.Clear();
 
-            Console.Write("Informe a base inical: ");
-            var original_base = Convert.ToInt32(Console.ReadLine());
-            Console.Write("\n");
+            bool exit = false;
 
-            Console.Write("Informe a base inical: ");
-            var target_base = Convert.ToInt32(Console.ReadLine());
+            while(!exit)
+            {
+                Console.Write("\nInforme o número: ");
+                var input = Console.ReadLine();
+                Console.Write("\n");
 
-            CheckInput(input, original_base);
+                Console.Write("Informe a base: ");
+                var original_base = Convert.ToInt32(Console.ReadLine());
+                Console.Write("\n");
+
+                Console.Write("Informe a base alvo: ");
+                var target_base = Convert.ToInt32(Console.ReadLine());
+
+
+                while (!CheckInput(input, original_base)) 
+                {
+                    Console.Clear();
+
+                    Console.Write($"Informe uma base válida para o número {input}");
+                    original_base = Convert.ToInt32(Console.ReadLine());
+                    Console.Write("\n");
+                }
+                
+                Console.Clear();
+
+                var result = AnyToAny(input, original_base, target_base);
+                Console.WriteLine($"Número: {input} Base: {original_base} \nBase Alvo: {target_base} Número Alvo: {result} \n Pressione qualquer tecla para continuar ↵");
+
+                Console.ReadKey();
+                Console.Clear();
+
+                Console.Write("Entre sair pra 'sair' da aplição, digite 'cont' para continuar ");
+                string userInput = Console.ReadLine();
+
+                if (userInput.ToLower() == "sair")
+                {
+                    exit = true;
+                }
+            }
+
+            Console.Clear();
+            Console.WriteLine("Saindo do programa. Presiona qualquer tecla.");
+            Console.ReadKey();
         }
 
-        static void CheckInput(string? input, int original_base)
+        static bool CheckInput(string? input, int original_base)
         {
-            throw new NotImplementedException();
+            string pattern = @"^(0?[0-9]|10|[A-Z])$";
+        
+            if(Regex.IsMatch(input, pattern, RegexOptions.IgnoreCase))
+            {
+                return GetBase(input) <= original_base;
+            } else {
+                return false;
+            }
         }
 
-        static string AnyToDec(String input, int original_base)
+        static string AnyToDec(string? input, int original_base)
         {
             String number = ReverseString(input.ToUpper());
 
@@ -41,7 +83,7 @@ namespace BaseConverter
             return Convert.ToString(acc);
         }
 
-        static string DecToAny(String input, int target_base)
+        static string DecToAny(string? input, int target_base)
         {
             int num = int.Parse(input);
 
@@ -57,7 +99,7 @@ namespace BaseConverter
             return new string((results).ToArray());
         }
 
-        static string AnyToAny(string input, int original_base, int target_base)
+        static string AnyToAny(string? input, int original_base, int target_base)
         {
             string inDecimal = AnyToDec(input, original_base);
 
@@ -95,7 +137,7 @@ namespace BaseConverter
             return Convert.ToChar(result);
         }
 
-        static int GetBase(String input_string)
+        static int GetBase(String? input_string)
         {
             int largest_yet = 0;
 
