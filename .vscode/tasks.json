@@ -9,7 +9,9 @@
                 "build",
                 "${workspaceFolder}/BaseConverterCshap.csproj",
                 "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary"
+                "/consoleloggerparameters:NoSummary",
+                "-c",
+                "Release"
             ],
             "problemMatcher": "$msCompile"
         },
@@ -36,6 +38,6 @@
                 "${workspaceFolder}/BaseConverterCshap.csproj"
             ],
             "problemMatcher": "$msCompile"
-        }
+        },
     ]
 }

@@ -103,7 +103,7 @@ namespace BaseConverter
         {
             string inDecimal = AnyToDec(input, original_base);
 
-            if ( GetBase(input) == 10 )
+            if ( original_base == 10 )
             {
                 return inDecimal;
             } else 
