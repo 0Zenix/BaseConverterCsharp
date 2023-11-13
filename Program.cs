@@ -3,10 +3,8 @@ using System.Text.RegularExpressions;
 
 namespace BaseConverter
 {
-
     class Program
     {
-
         static void Main(string[] args)
         {
             Console.Clear();
@@ -26,12 +24,11 @@ namespace BaseConverter
                 Console.Write("Informe a base alvo: ");
                 var target_base = Convert.ToInt32(Console.ReadLine());
 
-
-                while (!CheckInput(input, original_base)) 
+                while (CheckInput(input, original_base) == false) 
                 {
                     Console.Clear();
 
-                    Console.Write($"Informe uma base válida para o número {input}");
+                    Console.Write($"Informe uma base válida para o número {input}\n");
                     original_base = Convert.ToInt32(Console.ReadLine());
                     Console.Write("\n");
                 }
@@ -45,9 +42,9 @@ namespace BaseConverter
                 Console.Clear();
 
                 Console.Write("Entre sair pra 'sair' da aplição, digite 'cont' para continuar ");
-                string userInput = Console.ReadLine();
+                var userInput = Console.ReadLine();
 
-                if (userInput.ToLower() == "sair")
+                if (userInput?.ToLower() == "sair")
                 {
                     exit = true;
                 }
@@ -60,19 +57,12 @@ namespace BaseConverter
 
         static bool CheckInput(string? input, int original_base)
         {
-            string pattern = @"^(0?[0-9]|10|[A-Z])$";
-        
-            if(Regex.IsMatch(input, pattern, RegexOptions.IgnoreCase))
-            {
-                return GetBase(input) <= original_base;
-            } else {
-                return false;
-            }
+            return GetBase(input) <= original_base;
         }
 
         static string AnyToDec(string? input, int original_base)
         {
-            String number = ReverseString(input.ToUpper());
+            String number = ReverseString(input??"NULL".ToUpper());
 
             int acc = 0;
             for (int i = 0; i < number.Length; i++)
@@ -85,7 +75,7 @@ namespace BaseConverter
 
         static string DecToAny(string? input, int target_base)
         {
-            int num = int.Parse(input);
+            int num = int.Parse(input ?? "NULL");
 
             int resto;
             string results = string.Empty;
@@ -103,7 +93,7 @@ namespace BaseConverter
         {
             string inDecimal = AnyToDec(input, original_base);
 
-            if ( original_base == 10 )
+            if ( target_base == 10 )
             {
                 return inDecimal;
             } else 
@@ -141,7 +131,7 @@ namespace BaseConverter
         {
             int largest_yet = 0;
 
-            for (int i = 0; i < input_string.Length; i++)
+            for (int i = 0; i < input_string?.Length; i++)
             {
                 int num = CharToNumber(input_string[i]);
 
